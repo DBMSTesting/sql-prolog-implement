@@ -1,0 +1,69 @@
+--java.lang.AssertionError: SELECT t61.c0, t0.c0, v0.c0 FROM v0, t61 NATURAL RIGHT JOIN t0 WHERE t61.c1 UNION ALL SELECT t61.c0, t0.c0, v0.c0 FROM v0, t61 NATURAL RIGHT JOIN t0 WHERE (NOT t61.c1) UNION ALL SELECT t61.c0, t0.c0, v0.c0 FROM v0, t61 NATURAL RIGHT JOIN t0 WHERE ((t61.c1) IS NULL);
+--	at sqlancer.common.query.SQLQueryAdapter.checkException(SQLQueryAdapter.java:111)
+--	at sqlancer.common.query.SQLQueryAdapter.executeAndGet(SQLQueryAdapter.java:141)
+--	at sqlancer.ComparatorHelper.getResultSetFirstColumnAsString(ComparatorHelper.java:55)
+--	at sqlancer.ComparatorHelper.getCombinedResultSet(ComparatorHelper.java:140)
+--	at sqlancer.duckdb.test.DuckDBQueryPartitioningWhereTester.check(DuckDBQueryPartitioningWhereTester.java:39)
+--	at sqlancer.ProviderAdapter.generateAndTestDatabase(ProviderAdapter.java:61)
+--	at sqlancer.Main$DBMSExecutor.run(Main.java:364)
+--	at sqlancer.Main$2.run(Main.java:559)
+--	at sqlancer.Main$2.runThread(Main.java:541)
+--	at sqlancer.Main$2.run(Main.java:532)
+--	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+--	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+--	at java.base/java.lang.Thread.run(Thread.java:834)
+--Caused by: java.sql.SQLException: java.sql.SQLException: INTERNAL Error: TableCatalogEntry::GetStatistics column_id out of range
+--	at org.duckdb.DuckDBPreparedStatement.prepare(DuckDBPreparedStatement.java:111)
+--	at org.duckdb.DuckDBPreparedStatement.executeQuery(DuckDBPreparedStatement.java:179)
+--	at sqlancer.common.query.SQLQueryAdapter.executeAndGet(SQLQueryAdapter.java:131)
+--	... 11 more
+--Caused by: java.sql.SQLException: INTERNAL Error: TableCatalogEntry::GetStatistics column_id out of range
+--	at org.duckdb.DuckDBNative.duckdb_jdbc_prepare(Native Method)
+--	at org.duckdb.DuckDBPreparedStatement.prepare(DuckDBPreparedStatement.java:101)
+--	... 13 more
+---- Time: 2023/04/27 14:41:04
+-- Database: database5
+-- Database version: v0.5.1
+-- seed value: 1682572622108
+CREATE TABLE t61(c0 TIMESTAMP, c1 DATETIME DEFAULT(-253418488), c2 VARCHAR DEFAULT(''), PRIMARY KEY(c0));
+CREATE TABLE t0(c0 BOOLEAN DEFAULT(TIMESTAMP '1969-12-30 03:20:28'));
+ANALYZE;
+CREATE UNIQUE INDEX i4 ON t61(c2 , c1 , c0 ) WHERE t61.c2;
+EXPLAIN SELECT (((((35360759)*(t0.c0))) IS NOT NULL) NOT IN (false)) FROM t0;
+EXPLAIN SELECT (('╉c') ::DATE) FROM t61 GROUP BY 409860830 LIMIT 121080278;
+EXPLAIN SELECT ('7''Iz''உ' NOT IN ((NOT ((true) IS NULL)), ((DATE '1969-12-12') COLLATE NOACCENT), (((CASE t61.c1 WHEN t61.c0 THEN t0.rowid ELSE TIMESTAMP '1969-12-30 05:18:21' END ))<=(TIMESTAMP '1970-01-01 07:59:59')))) FROM t61 RIGHT  JOIN t0 ON UPPER(((((('[& ~]rG')OR(t61.c0)) NOT BETWEEN (false LIKE true ESCAPE t0.c0) AND (t61.c1 NOT IN (t61.c0))))+(((DATE '1970-01-26') IS NOT NULL))));
+EXPLAIN SELECT t0.rowid FROM t61 NATURAL RIGHT JOIN t0 WHERE 0.9426846953215756 HAVING t61.c2;
+EXPLAIN SELECT t0.rowid, ((((t0.c0 IN (TIMESTAMP '1970-01-02 04:17:45'))) COLLATE NOACCENT) NOT BETWEEN NULL AND ((307260225) COLLATE NOACCENT)), t0.rowid FROM t0 LIMIT 1416578161 OFFSET 1585288261;
+EXPLAIN SELECT -493797430 FROM t0 INNER  JOIN t61 ON (((((t0.c0 LIKE t61.c0 ESCAPE t61.c2))AND(((-1392624997) ::DATE))))<(((t61.c1) IS NULL))) WHERE true GROUP BY t61.c1 LIMIT 1771461398 OFFSET 586027521;
+EXPLAIN SELECT t0.rowid FROM t0 WHERE (((((1110990993)%(t0.c0)))&((t0.rowid NOT IN (552126095)))) BETWEEN true AND t0.rowid) GROUP BY (((t0.c0 LIKE 369614417 ESCAPE YEARWEEK(false))) ::DATE), t0.rowid, REGEXP_REPLACE(((true)AND(t0.c0)), (((CASE (('e蓹J1^') COLLATE NOACCENT.NOCASE) WHEN (CASE TIMESTAMP '1970-01-06 16:29:48' WHEN 1.322273896E9 THEN t0.rowid ELSE t0.c0 END ) THEN ((false)AND(t0.rowid)) WHEN (CASE DATE '1969-12-24' WHEN false THEN t0.rowid ELSE true END ) THEN (- true) WHEN ((0.28355885145875237)OR(TIMESTAMP '1970-01-24 15:35:09')) THEN ((961663080) COLLATE POSIX) ELSE t0.rowid END )) IS NULL), ((t0.c0)~(((+ 0.5419008683149499) LIKE ((t0.c0)+('㋅Q')) ESCAPE (CASE 0.15970417506439893 WHEN t0.rowid THEN t0.c0 ELSE t0.rowid END ))))) ORDER BY ((((t0.c0)!=(false)))OR((CASE ((t0.c0) COLLATE NOACCENT.NOCASE) WHEN (0.719982147853619 BETWEEN t0.c0 AND t0.c0) THEN '' WHEN -2.53418488E8 THEN 'N.kp9' WHEN ((DATE '1969-12-23')>(0.9031165620106604)) THEN true ELSE DATE '1970-01-09' END ))) ASC;
+EXPLAIN SELECT t61.c0, (t61.c2 BETWEEN (((TIMESTAMP '1969-12-28 13:02:53' LIKE t61.c2 ESCAPE TIMESTAMP '1969-12-23 08:40:44'))<<(t61.c0)) AND TIMESTAMP '1969-12-31 18:17:37'), SIN(t61.c1), 0.07732472280427127, 517199614 FROM t61 OFFSET 1765486582;
+EXPLAIN SELECT 0.2564583242105758 FROM t0 WHERE ((t0.c0)>=(t0.c0)) LIMIT 1942008084 OFFSET 465502731;
+UPDATE t0 SET rowid=TIMESTAMP '1969-12-25 17:18:02', c0=TIMESTAMP '1970-01-01 17:49:20';
+UPDATE t61 SET c1='HB', c2=TIMESTAMP '1969-12-19 09:49:25', c0=301121543;
+INSERT INTO t61(c0, c1) VALUES (0.8775011056496355, DEFAULT);
+INSERT INTO t61(c1, c0, c2) VALUES ('495273774', true, -1.739634151E9), (DATE '1969-12-13', '-775155183', 'Fo');
+INSERT INTO t61(c0, c1) VALUES (DATE '1969-12-14', false), (1516557686, 0.26233038234355277);
+INSERT INTO t61(c2) VALUES (0.26667599150591914), ('J#f~]UX35'), (TIMESTAMP '1970-01-02 15:54:49');
+INSERT INTO t61(c2, c0, c1) VALUES (true, DEFAULT, DATE '1969-12-11'), (78165781, -4.4056818E7, DEFAULT);
+INSERT INTO t0(rowid) VALUES (DATE '1969-12-24');
+INSERT INTO t0(rowid) VALUES ('6d');
+INSERT INTO t61(c2, c0, c1) VALUES (true, false, false);
+INSERT INTO t0(rowid) VALUES ('qM'), ('%'), (DATE '1969-12-31'), (NULL);
+INSERT INTO t0(c0) VALUES (0.9569143700907063), ('');
+INSERT INTO t0(c0) VALUES (DEFAULT);
+INSERT INTO t0(rowid) VALUES (0.4535404569173669), (0.8680850621447028);
+INSERT INTO t0(c0) VALUES (0.05394315390099813);
+DELETE FROM t0 WHERE (DATE '1969-12-22' NOT BETWEEN ((((DATE '1970-01-03')AND(t0.rowid)))OR(DATE '1970-01-24')) AND (((CASE t0.c0 WHEN t0.c0 THEN DATE '1970-01-12' ELSE TIMESTAMP '1969-12-26 14:54:55' END )) IS NULL));
+DELETE FROM t61 WHERE t61.c1;
+CREATE INDEX i2 ON t0(rowid , c0 ) WHERE t0.rowid;
+CREATE UNIQUE INDEX i2 ON t61(c0 );
+CREATE VIEW v78(c0) AS SELECT ('X+T[GFygl' LIKE t0.c0 ESCAPE -1901122020) FROM t0 WHERE 0.5602711049577213 HAVING ((t0.rowid) COLLATE C);
+CREATE VIEW v0(c0) AS SELECT DATE '1969-12-10' FROM t61 LEFT  JOIN t0 ON ((STRIP_ACCENTS(TIMESTAMP '1969-12-18 18:31:42')) COLLATE NOACCENT) WHERE 0.5762214893348063 ORDER BY ROUND(DATE '1969-12-20', t0.rowid), ((((t61.c0)/(t61.c1)))>>((((t61.c1 LIKE t61.c1 ESCAPE TIMESTAMP '1970-01-16 12:08:10')) IS NULL))), t61.c0 ASC LIMIT 1626565631 OFFSET 493148811;
+CREATE VIEW v0(c0) AS SELECT t61.c1 FROM t61 WHERE ((((t61.c2)AND(t61.c2))) COLLATE NOACCENT) GROUP BY t61.c0 HAVING 0.9813531036430811;
+CREATE VIEW v0(c0) AS SELECT ((true)*(t61.c0)) FROM t0, t61 HAVING VAR_POP((((t0.rowid LIKE '-492172163' ESCAPE t0.c0))*(true))) ORDER BY (35360759 LIKE t61.c1 ESCAPE ((0.708080034858533)OR(((t61.c0) ::VARCHAR)))) ASC LIMIT 1417447468;
+CREATE VIEW v0(c0) AS SELECT true FROM t61 WHERE ((DATE '1969-12-09')!=(t61.c1)) GROUP BY TIMESTAMP '1969-12-15 03:58:25';
+UPDATE t61 SET c0='dnImjTzf';
+VACUUM;
+UPDATE t0 SET rowid=DATE '1970-01-25';
+UPDATE t0 SET rowid=false, c0=DATE '1970-01-10';
+UPDATE t61 SET c0=DATE '1969-12-17';

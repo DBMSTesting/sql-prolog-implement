@@ -1,0 +1,61 @@
+--java.lang.AssertionError: SELECT * FROM v0, t0 NATURAL LEFT JOIN t1 WHERE t1.c1 UNION ALL SELECT * FROM v0, t0 NATURAL LEFT JOIN t1 WHERE (NOT t1.c1) UNION ALL SELECT * FROM v0, t0 NATURAL LEFT JOIN t1 WHERE ((t1.c1) IS NULL);
+--	at sqlancer.common.query.SQLQueryAdapter.checkException(SQLQueryAdapter.java:111)
+--	at sqlancer.common.query.SQLQueryAdapter.executeAndGet(SQLQueryAdapter.java:141)
+--	at sqlancer.ComparatorHelper.getResultSetFirstColumnAsString(ComparatorHelper.java:55)
+--	at sqlancer.ComparatorHelper.getCombinedResultSet(ComparatorHelper.java:140)
+--	at sqlancer.duckdb.test.DuckDBQueryPartitioningWhereTester.check(DuckDBQueryPartitioningWhereTester.java:39)
+--	at sqlancer.ProviderAdapter.generateAndTestDatabase(ProviderAdapter.java:61)
+--	at sqlancer.Main$DBMSExecutor.run(Main.java:364)
+--	at sqlancer.Main$2.run(Main.java:559)
+--	at sqlancer.Main$2.runThread(Main.java:541)
+--	at sqlancer.Main$2.run(Main.java:532)
+--	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+--	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+--	at java.base/java.lang.Thread.run(Thread.java:834)
+--Caused by: java.sql.SQLException: java.sql.SQLException: INTERNAL Error: TableCatalogEntry::GetStatistics column_id out of range
+--	at org.duckdb.DuckDBPreparedStatement.prepare(DuckDBPreparedStatement.java:111)
+--	at org.duckdb.DuckDBPreparedStatement.executeQuery(DuckDBPreparedStatement.java:179)
+--	at sqlancer.common.query.SQLQueryAdapter.executeAndGet(SQLQueryAdapter.java:131)
+--	... 11 more
+--Caused by: java.sql.SQLException: INTERNAL Error: TableCatalogEntry::GetStatistics column_id out of range
+--	at org.duckdb.DuckDBNative.duckdb_jdbc_prepare(Native Method)
+--	at org.duckdb.DuckDBPreparedStatement.prepare(DuckDBPreparedStatement.java:101)
+--	... 13 more
+---- Time: 2023/04/27 13:57:14
+-- Database: database0
+-- Database version: v0.5.1
+-- seed value: 1682572622103
+CREATE TABLE t0(c0 DATE, PRIMARY KEY(c0));
+CREATE TABLE t1(c0 INT8, c1 DOUBLE UNIQUE DEFAULT(TIMESTAMP '1970-01-19 17:55:29'), PRIMARY KEY(c1));
+DELETE FROM t1;
+EXPLAIN SELECT false FROM t1, t0 HAVING COVAR_SAMP(t0.c0) ORDER BY t1.c1 OFFSET 1398775404;
+EXPLAIN SELECT (((((-409482021)>(-1.120267963E9)))~('261516052')) IN (((t0.c0)/(AGE(2145633178, DATE '1970-01-04'))))) FROM t1, t0 LIMIT 1176603433;
+EXPLAIN SELECT t1.c1 FROM t0 NATURAL FULL JOIN t1 OFFSET 534470440;
+INSERT INTO t1(c0) VALUES (false), (DATE '1969-12-29');
+INSERT INTO t0(c0) VALUES (DATE '1969-12-21');
+CREATE UNIQUE INDEX i2 ON t0(c0 );
+INSERT INTO t1(c0, c1) VALUES (TIMESTAMP '1970-01-02 01:07:43', 0.9969819492413594);
+INSERT INTO t0(c0) VALUES (-925174414);
+INSERT INTO t0(c0) VALUES (1311825412), (-1706005736);
+INSERT INTO t0(c0) VALUES ('');
+INSERT INTO t0(c0) VALUES (1619953342);
+INSERT INTO t1(c0, c1) VALUES (302979345, 'ClN\r]4(P#'), (1433478026, 1829586282);
+INSERT INTO t0(c0) VALUES (TIMESTAMP '1969-12-12 00:50:35');
+CREATE VIEW v0(c0) AS SELECT 'PX' FROM t1, t0 GROUP BY ((t0.c0) IS NULL) HAVING t1.c1 LIMIT 356045787;
+CREATE VIEW v84(c0) AS SELECT DATE '1969-12-22' FROM t1 WHERE TIMESTAMP '1970-01-15 06:14:54' GROUP BY ((((((t1.c0) IS NOT NULL)) ::DATETIME)) COLLATE NOCASE) HAVING VAR_SAMP(DATE '1970-01-09') ORDER BY -641606288 DESC LIMIT 637367433 OFFSET 1671648666;
+CREATE VIEW v0(c0) AS SELECT (((('39')*(t0.c0))) COLLATE NOACCENT) FROM t0;
+CREATE VIEW v0(c0) AS SELECT DATE '1969-12-27' FROM t1, t0 GROUP BY ((DATE '1970-01-09') IS NOT NULL) ORDER BY t1.c0 LIMIT 960987507 OFFSET 215745001;
+CREATE VIEW v0(c0) AS SELECT t1.c0 FROM t1, t0 WHERE 0.27170260313503636 GROUP BY (((+ '') LIKE t0.c0 ESCAPE ((t0.c0) COLLATE NOCASE)) NOT IN (TIMESTAMP '1969-12-25 04:30:50', (+ ('!#' NOT BETWEEN true AND t1.c0)), t1.c1)) ORDER BY (CASE t0.c0 WHEN ((t0.c0)LIKE(((TIMESTAMP '1969-12-11 04:39:06') ::BOOLEAN))) THEN (((t1.c0) COLLATE POSIX) BETWEEN '㲬 R' AND t0.c0) ELSE DATE '1970-01-20' END ) ASC LIMIT 2111244386 OFFSET 875260829;
+CREATE VIEW v0(c0) AS SELECT ((((NOT t1.c0) BETWEEN ((t0.c0) COLLATE C) AND ((t1.c1) IS NULL))) ::TIMESTAMP) FROM t0, t1 WHERE ((-858728254) IS NOT NULL) GROUP BY -1574513618, TIMESTAMP '1970-01-04 07:21:14', 1.908310281E9 HAVING '8w0' ORDER BY (((('nTp') IS NOT NULL))>>(756969080)) LIMIT 516427883 OFFSET 162934715;
+CREATE VIEW v0(c0, c1, c2) AS SELECT (TIMESTAMP '1970-01-04 18:59:31' LIKE (((-1719502775 LIKE t0.c0 ESCAPE t1.c0)) COLLATE NOACCENT.NOCASE) ESCAPE (('ym')>>((t1.c0 NOT IN (6.55786411E8))))), ((((0.08108449142064178 BETWEEN t1.c1 AND TIMESTAMP '1970-01-14 00:18:58') BETWEEN (NOT t1.c1) AND (CASE t1.c0 WHEN TIMESTAMP '1970-01-17 13:33:27' THEN false ELSE -353742561 END )))AND(DATE '1970-01-01')), (0.24521665471939003 NOT BETWEEN TIMESTAMP '1970-01-14 03:47:43' AND (DATE '1969-12-22' LIKE ((t0.c0) COLLATE C) ESCAPE DATE '1969-12-15')) FROM t1, t0 WHERE t1.c1 GROUP BY false, t1.c1, 0.1404465415653965, (((t1.c1) COLLATE NOACCENT) BETWEEN ((ATAN2(t1.c1)) ::BOOL) AND 0.9407109762830739), ((t1.c1) COLLATE NOACCENT.NOCASE);
+CREATE VIEW v0(c0, c1, c2, c3, c4) AS SELECT t0.c0, t0.c0, TIMESTAMP '1970-01-25 16:23:36', 0.3793760498777198, DATE '1969-12-25' FROM t0, t1 WHERE ((t1.c1) IS NOT NULL);
+CREATE INDEX i3 ON t0(c0 ) WHERE t0.c0;
+VACUUM;
+UPDATE t0 SET c0=DATE '1970-01-15';
+UPDATE t0 SET c0=0.5713014787184508;
+UPDATE t0 SET c0=0.3370963769192381;
+UPDATE t0 SET c0=-1073363815;
+UPDATE t0 SET c0=DATE '1969-12-24';
+UPDATE t0 SET c0=true;
+UPDATE t1 SET c1=DATE '1970-01-03', c0=765551791;
+ANALYZE;
